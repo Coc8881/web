@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>$http request test </title>
+    <script src="http://cdn.bootcss.com/angular.js/1.5.0/angular.min.js"></script>
+</head>
+<body ng-app="App" ng-controller="ctrl">
+
+    <li ng-repeat="x in dataset">
+        <p>{{x.name}}</p>
+        <p>{{x.age}}</p>
+    </li>
+
+        <script>
+            var app = angular.module('App',[]);
+                app.controller('ctrl', ['$scope', function($scope){
+                   $scope.dataset=[{
+                    "name":"xzh","age":"23"},{"name":"lisa","age":"22"}];
+                }]);
+        </script>
+</body>
+</html>

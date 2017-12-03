@@ -1,0 +1,29 @@
+<div ng-controller="logsCtrl">
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span6">
+			<form class="form-search">
+				<input class="input-medium search-query" type="text" /> <button type="submit" class="btn">查找</button>
+			</form>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>标题</th>
+						<th>时间</th>
+						<th>状态</th>
+					</tr>
+				</thead>
+				<tbody x>
+					<tr ng-repeat="item in logs">
+						<td ng-bind="item.id"></td>
+						<td ng-bind="item.title"></td>
+						<td ng-bind="item.time"></td>
+						<td ng-bind="item.status"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
