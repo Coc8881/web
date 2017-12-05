@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html ng-app="cookiesMod">
 <head lang="en">
     <meta charset="UTF-8">
@@ -26,4 +27,32 @@
 
     });
 </script>
+=======
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="siteCtrl"> 
+
+	<ul  ng-repeat="x in names">
+	 	<span ng-bind="x.Name"></span>
+	 	<span ng-bind="x.Url"></span>
+	 	<span ng-bind="x.Country"></span>
+	</ul>  
+
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('siteCtrl', function($scope, $http) {
+	  $http.get("data/test2.json")
+	  .then(function (response) {$scope.names = response.data.sites;});
+	});
+</script>
+
+</body>
+>>>>>>> 839b74c0bd67c4b556cf7ab32b5f9af7c58be34b
 </html>
