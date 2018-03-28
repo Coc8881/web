@@ -96,6 +96,7 @@ input#img-6:checked ~ .nav-dots label#img-dot-6{
 }
 </style>
 <div ng-controller="imgCtrl">
+<<<<<<< HEAD
 	<span ng-repeat="path in paths">
 		<img class="album" ng-src="{{path}}" ng-click="toTarget($index,$event)" style="display: inline;cursor: pointer; height:150px; width: 150px;margin-right: 15px;" alt="">
 	</span>
@@ -124,5 +125,9 @@ input#img-6:checked ~ .nav-dots label#img-dot-6{
 			<label for="img-6" class="nav-dot" id="img-dot-6"></label>
 		</li>
 		
+=======
+	<ul ng-repeat="url in place">
+		<li><img ng-src="{{url.url}}" class="img-rounded"></li>
+>>>>>>> 8cc07d4f3b2eacc9b2e20d345b690e69be08805a
 	</ul>
 </div>

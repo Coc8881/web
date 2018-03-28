@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use strict'
 app.controller('logsCtrl', ['$scope', '$http', 'CookieService', 'host', ($scope, $http, CookieService, host) => {
 	var getall = (pageNumStr) => {
@@ -126,3 +127,15 @@ app.controller('logsCtrl', ['$scope', '$http', 'CookieService', 'host', ($scope,
 	$scope.findall = getall
 	$scope.todetail = todetail
 }])
+=======
+'use strict';
+app.controller('logsCtrl', ['$scope','$http', function($scope,$http){
+<<<<<<< HEAD
+	$http.get('data/logs.json').then(function (response) {
+		$scope.logs = response.data.logs;
+	});
+=======
+	$http.get('data/logs.json').then(function (response) {$scope.logs = response.data.logs;});
+>>>>>>> 839b74c0bd67c4b556cf7ab32b5f9af7c58be34b
+}]);
+>>>>>>> 8cc07d4f3b2eacc9b2e20d345b690e69be08805a

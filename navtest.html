@@ -1,4 +1,33 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
+<html ng-app="cookiesMod">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+    <title>tutorial08</title>
+</head>
+<body ng-controller="CookiesController" ng-init="init()">
+<button ng-click="getInfo()">获取Cookies信息</button>
+</body>
+<script>
+    var cookiesMod = angular.module("cookiesMod",['ngCookies']);
+    cookiesMod.controller("CookiesController",function($scope,$log,$cookieStore){
+        $scope.init = function()
+        {
+            $log.info("init functionn");
+            $cookieStore.put("person",{name:"Rongbo_J",age:23});
+        }
+
+        $scope.getInfo = function()
+        {
+            var person = $cookieStore.get("person") ;
+            alert("name : " + person.name +" , "+ "age : " + person.age);
+        }
+
+    });
+</script>
+=======
 <html>
 <head>
 <meta charset="utf-8">
@@ -25,4 +54,5 @@
 </script>
 
 </body>
+>>>>>>> 839b74c0bd67c4b556cf7ab32b5f9af7c58be34b
 </html>

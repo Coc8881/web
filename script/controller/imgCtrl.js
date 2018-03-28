@@ -1,4 +1,6 @@
+<<<<<<< HEAD
 'use strict';
+<<<<<<< HEAD
 app.controller('imgCtrl', ['$scope', '$rootScope', '$http', 'CookieService', '$location', '$cookies', '$cookieStore', '$state', ($scope, $rootScope, $http, CookieService, $location, $cookies, $cookieStore, $state) => {
 	$http.get('http://192.168.119.178:8088/getPath').then((res) => {
 		$scope.urls = res.data
@@ -57,3 +59,15 @@ app.controller('imgCtrl', ['$scope', '$rootScope', '$http', 'CookieService', '$l
 		}
 	}
 }])
+=======
+app.controller('imgCtrl', ['$scope','$http', function($scope,$http){
+	$http.get('data/url.json').then(function(response){
+		$scope.place=response.data.place;
+	});
+=======
+'use strict'
+app.controller('imgCtrl', ['$scope', function($scope){
+	
+>>>>>>> 839b74c0bd67c4b556cf7ab32b5f9af7c58be34b
+}]);
+>>>>>>> 8cc07d4f3b2eacc9b2e20d345b690e69be08805a
