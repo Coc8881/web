@@ -1,0 +1,44 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">用例集全局参数配置</h3>
+    </div>
+    <div class="modal-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>参数值</th>
+            </tr>
+            </thead>
+            <tbody ng-repeat="param in params">
+            <tr>
+                <td>{{param}}</td>
+                <td><input name="test" class="form-control" type="text" ng-trim="false" ng-model="$parent.conf[$index]"/></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">
+            应用
+        </button>
+        <button class="btn btn-warning" ng-click="cancel()">取消</button>
+    </div>
+
+</div>
+<script>
+    var ModalInstanceCtrl = function ($scope, $modalInstance, params) {
+            $scope.params = params;
+            $scope.conf = [];
+            $scope.ok = function () {
+                console.log($scope.conf);
+                $modalInstance.close($scope.conf);
+            };
+            $scope.cancel = function () {
+                $modalInstance.dismiss('cancel');
+            };
+        };
+</script>

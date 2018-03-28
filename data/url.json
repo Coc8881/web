@@ -1,0 +1,13 @@
+{
+	"place":[
+		{
+			"url":"img/first.jpg"
+		},{
+			"url":"img/second.jpg"
+		},{
+			"url":"img/third.jpg"
+		},{
+			"url":"img/fourth.jpg"
+		}
+	]
+}

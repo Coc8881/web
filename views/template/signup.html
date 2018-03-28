@@ -1,0 +1,43 @@
+<style>
+	.erro{
+		border: 1px red solid;
+	}
+	.tips{
+		color: red;font-size: 10px;
+	}
+</style>
+<div class="tabbable" id="tabs-116060">
+	<ul class="nav nav-tabs">
+		<li class="active">
+			<a href="#panel-335801" data-toggle="tab">注册</a>
+		</li>
+	</ul>
+</div>
+<h3 style=" position: absolute; padding-left: 170px;padding-top: 50px;">注册</h3>
+<div class="tab-pane" id="panel-953225" style="padding-left: 50px;padding-top: 100px;">
+	<form name="signForm" ng-controller="signupCtrl" ng-submit="sigup()">
+		<label>用户名</label>
+		<input type="text"
+		 name="username" 
+		 class="form-control"
+		 required ng-minlength="6" 
+		 ng-maxlength="14" 
+		 ng-model="usr" 
+		 style="margin-bottom: 20px; width: 300px;">
+		<label class="tips" ng-if="signForm.username.$invalid && signForm.username.$touched">
+		  用户名应该在6-14位之间
+		</label><br>
+		<label>密码</label><input type="password" 
+		name="passwd" 
+		required ng-minlength="6" 
+		ng-maxlength="14" 
+		class="form-control" 
+		ng-model="pwd"
+		style="margin-bottom: 20px; width: 300px;">
+		<label class="tips" ng-if="signForm.passwd.$invalid && signForm.passwd.$touched">
+		  密码应该在6-14位之间
+		</label><br>
+		<label>确认密码</label><input type="password" class="form-control" ng-model="ensurepwd" style="width: 300px;">
+		<button class="btn" type="submit" style="margin-top: 20px;">提交</button>
+	</form>
+</div>

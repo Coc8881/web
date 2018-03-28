@@ -1,0 +1,9 @@
+ [
+	{times:24,days:'Monday'},
+	{times:6,days:'Tuesday'},
+	{times:24,days:'Wendsday'},
+	{times:4,days:'Thursdsday'},
+	{times:24,days:'Friday'},
+	{times:14,days:'Saturday'},
+	{times:18,days:'Sunday'}
+]

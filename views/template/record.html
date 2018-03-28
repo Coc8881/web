@@ -1,0 +1,28 @@
+<div>
+	<div>
+	<meta charset="utf8">
+	<h3>访问量统计</h3>
+	<div id="countVisit"></div>
+	<script>		
+		var recordHost = 'http://192.168.119.178:8882'
+		var visitChart = new G2.Chart({
+			container:'countVisit',
+			width:600,
+			height:400
+		})
+		$.ajax({
+			method:'GET',
+			url:recordHost+'/getRecord',
+			success:function(res){
+				console.log(res)
+				visitChart.source(res)
+				visitChart.line().position('loginDate*times')
+				visitChart.axis('visitChart',{
+					title:'一周的访问量'
+				})
+				visitChart.render()
+			}
+		})
+	</script>
+</div>
+</div>
