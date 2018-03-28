@@ -2,26 +2,91 @@
 <html lang="en" ng-app="App">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<link rel="shortcut icon" href="images/html-tag.png" />
 	<title>Personal</title>
 	<!-- 依赖 -->
-	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
-	<script src="https://cdn.bootcss.com/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
-	<!-- 逻辑 -->
+	<script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/angular.js/1.4.8/angular.min.js"></script>
+	<script src="https://cdn.bootcss.com/angular-ui-router/0.4.3/angular-ui-router.min.js"></script>
+	<script src="https://cdn.bootcss.com/angular.js/1.4.0/angular-cookies.min.js"></script>
+<!-- 逻辑 -->
 	<script src="app.js"></script>
 	<script src="script/config/router.js"></script>
 	<script src="script/controller/mainCtrl.js"></script>
 	<script src="script/controller/imgCtrl.js"></script>
 	<script src="script/controller/logsCtrl.js"></script>
+	<!-- <script src="script/controller/recordCtrl.js"></script> -->
 	<script src="script/controller/loginCtrl.js"></script>
+	<script src="script/controller/signupCtrl.js"></script>
 	<script src="script/controller/writeCtrl.js"></script>
+	<script src="script/controller/detailCtrl.js"></script>
+	<script src="script/controller/headCtrl.js"></script>
 	<script src="script/directive/headDirective.js"></script>
+	<script src="script/services/CookieService.js"></script>
+	<script src="script/services/routerListener.js"></script>
+	<script src="script/config/hostConfig.js"></script>
 	<!-- 样式 -->
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script></head>
+	<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/antv/assets/g2/3.0.4/g2.min.js"></script>
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/textAngular/1.5.16/textAngular-rangy.min.js"></script>
+	<script src="https://cdn.bootcss.com/textAngular/1.5.16/textAngular-sanitize.min.js"></script>
+    <script src="https://cdn.bootcss.com/textAngular/1.5.16/textAngular.min.js"></script>
+    <script>
+    ;(function(designWidth, maxWidth) {
+	var doc = document,
+	win = window,
+	docEl = doc.documentElement,
+	remStyle = document.createElement("style"),
+	tid;
+
+	function refreshRem() {
+		var width = docEl.getBoundingClientRect().width;
+		maxWidth = maxWidth || 540;
+		width>maxWidth && (width=maxWidth);
+		var rem = width * 100 / designWidth;
+		remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
+	}
+
+	if (docEl.firstElementChild) {
+		docEl.firstElementChild.appendChild(remStyle);
+	} else {
+		var wrap = doc.createElement("div");
+		wrap.appendChild(remStyle);
+		doc.write(wrap.innerHTML);
+		wrap = null;
+	}
+	//要等 wiewport 设置好后才能执行 refreshRem，不然 refreshRem 会执行2次；
+	refreshRem();
+
+	win.addEventListener("resize", function() {
+		clearTimeout(tid); //防止执行两次
+		tid = setTimeout(refreshRem, 300);
+	}, false);
+
+	win.addEventListener("pageshow", function(e) {
+		if (e.persisted) { // 浏览器后退的时候重新计算
+			clearTimeout(tid);
+			tid = setTimeout(refreshRem, 300);
+		}
+	}, false);
+
+	if (doc.readyState === "complete") {
+		doc.body.style.fontSize = "16px";
+	} else {
+		doc.addEventListener("DOMContentLoaded", function(e) {
+			doc.body.style.fontSize = "16px";
+		}, false);
+	}
+})(750, 750);
+    </script>
+</head>
 <body>
-	<ui-head></ui-head>
-	<div ui-view></div>
-	
+	<ui-head model="username"></ui-head>
+	<div class="animated bounceIn" ui-view></div>
 </body>
 </html>

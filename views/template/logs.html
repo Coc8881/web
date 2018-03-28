@@ -1,38 +1,57 @@
+<style>
+	.pagination{
+		z-index: -10000000;
+		padding-top: 0px;
+		display: inline-block;
+	}
+</style>
 <div ng-controller="logsCtrl">
+<div>
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span6">
-			<form class="form-search">
-				<input class="input-medium search-query" type="text" /> <button type="submit" class="btn">查找</button>
+			<form class="form-search" ng-submit="find()">
+				<input class="input-medium search-query" type="text" placeholder="根据标题查找" ng-model="findmsg"/> <button type="submit" class="btn">查找</button>
+			</form class="form-control" style="z-index: 10;">
+			<button class="btn" style="position: absolute;margin-top: -33.5px;margin-left: 240px;" ng-click="findall()">返回</button>
+			<form ng-show="showeditor" style="position: absolute;margin-top: -140px; width: 100%; height: 100%; margin-left: -30px; border:0;background-color: #fff; z-index: 1000" tabindex="1">
+				<label for="" style="height:20px; line-height: 20px;">{{details.id}}</label>
+				<h4 align="center" style="padding-left: 500px; z-index: 10; height:20px; line-height: 20px;">{{details.title}}</h4>
+				<div ng-bind-html="text" class="animated lightSpeedIn" style="background-color: #e9dfc7;border-radius: 10px;  height: 100% width:100%;margin-left: 20px; z-index: 10000000000000; resize: none; border: 0px;" name="" id="content" cols="235" rows="28" ng-disabled="isEditable">
+				</div>
+				<div class="btn-group" style="margin-top: 10px;">
+					<button class="btn" type="button"><em class="icon-align-left"></em>&laquo;</button><button ng-click="next()" class="btn" type="button"><em class="icon-align-center"></em>&raquo;</button><button class="btn" ng-click="Editorenable()">编辑</button><button type="submit" class="btn" ng-click="updatelog()">发布更新</button><button class="btn" type="btn" ng-click="closeeditor()"><em class="icon-align-justify"></em>返回</button>
+				</div>
 			</form>
 			<table class="table">
 				<thead>
 					<tr>
 						<th>编号</th>
 						<th>标题</th>
-						<th>时间</th>
+						<th>提交时间</th>
 						<th>状态</th>
 					</tr>
 				</thead>
-				<tbody x>
-					<tr ng-repeat="item in logs">
-						<td ng-bind="item.id"></td>
-						<td ng-bind="item.title"></td>
-						<td ng-bind="item.time"></td>
-						<td ng-bind="item.status"></td>
+				<tbody>
+					<tr ng-repeat="item in logs track by $index">
+			            <td><div><a class="id" ng-model="$parent.conf[$index]" href="" ng-click="todetail($index,$event)">{{item.id}}</a></div></td></a>
+						<td><div><a id="title" href="" ng-click="todetailbytitle($event)">{{item.title}}</a></div></td>
+						<td><div>{{item.timing}}</div></td>
+						<td><div>{{item.state}}</div></td>
 					</tr>
 				</tbody>
-			</table>
-			<ul class="pagination">
-			    <li><a href="#">&laquo;</a></li>
-			    <li><a href="#">1</a></li>
-			    <li><a href="#">2</a></li>
-			    <li><a href="#">3</a></li>
-			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li>
-			    <li><a href="#">&raquo;</a></li>
-			</ul>
+			</table>	
 		</div>
 	</div>
 </div>
+<div>
+	<ul class="pagination" ng-hide="hidepagination">
+	    <li><a href="#"  ng-click="return()">&laquo;</a></li>
+	    <li><a href="#" ng-repeat="pagenum in pagenums" ng-bind="{{pagenum}}" ng-click="changepage($event)"></a></li>
+	    <li><a href="#"  ng-click="next()">&raquo;</a></li>
+	</ul>
+	</div>
 </div>
+</div>
+
+

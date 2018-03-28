@@ -1,2 +1,2 @@
 'user strict';
-var app = angular.module('App',['ui.router']);
+const app = angular.module('App',['ui.router','ngCookies','textAngular','ngSanitize']);

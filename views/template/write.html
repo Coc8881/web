@@ -1,8 +1,30 @@
+<style>
+	.ta-editor {
+    min-height: 300px;
+    max-height: 600px;
+    height: auto;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 100%;
+    margin: 20px 0;
+}
+</style>
 <div ng-controller="writeCtrl">
-	<form action="">
-		<textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-		<div class="btn-group" style="margin-top: 10px;">
-				 <button class="btn" type="button"><em class="icon-align-left"></em>插入图片</button> <button class="btn" type="button"><em class="icon-align-center"></em>重写</button><button class="btn" type="submit"><em class="icon-align-justify"></em>提交</button>
+	<form ng-submit="submit()">
+		<label for="">标题</label><input type="text" ng-model="title" class="form-control">
+		<div class="alert alert-info">
+				 <button type="button" class="close" data-dismiss="alert">×</button>
+				 <strong>提示!</strong>1.带半角''会转义成""。
+				 					   2.可传输网络图片，暂不支持本地图片上传
 			</div>
+		<div text-angular="text-angular"  class="ta-root">
+		 
+		</div>
+		 <!-- <div class="ta-toolbar btn-toolbar"></div> -->
+		<textarea name="" id="" ng-model="content" height="0px" width="0px" ng-hide="true"></textarea>
+
+		<div class="btn-group" style="margin-top: 10px;">
+		<button class="btn" type="button"><em class="icon-align-left"></em>插入图片</button> <button ng-click="clear()" class="btn" type="button"><em class="icon-align-center"></em>重写</button><button class="btn" type="submit" ><em class="icon-align-justify"></em>提交</button>
+		</div>
 	</form>
 </div>

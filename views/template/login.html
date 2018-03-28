@@ -3,24 +3,16 @@
 		<li class="active">
 			<a href="#panel-335801" data-toggle="tab">登陆</a>
 		</li>
-		<li>
-			<a href="#panel-953225" data-toggle="tab">注册</a>
-		</li>
 	</ul>
-	<div class="tab-content">
-		<div class="tab-pane active" id="panel-335801">
-			<form>
-				<label>用户名</label><input type="text" class="form-control" style="margin-bottom: 20px; width: 300px;">
-				<label>密码</label><input type="password" class="form-control" style="width: 300px;">
-				<button type="submit" class="btn" style="margin-top:20px;">登陆</button>
-			</form>
-		</div>
-		<div class="tab-pane" id="panel-953225">
-			<form>
-				<label>用户名</label><input type="text" class="form-control" style="margin-bottom: 20px; width: 300px;">
-				<label>密码</label><input type="password" class="form-control" style="margin-bottom: 20px; width: 300px;">
-				<label>确认密码</label><input type="password" class="form-control" style="width: 300px;">
-				<button class="btn" type="submit" style="margin-top: 20px;">提交</button>
-			</form>
-		</div>
+</div>
+<h3 style=" position: absolute; padding-left: 170px;padding-top: 50px;">登录</h3>
+<div class="tab-content" style="padding-left: 50px;padding-top: 100px;">
+	<div class="tab-pane active" id="panel-335801">
+		<form ng-controller="loginCtrl"  ng-submit="login()">
+			<label>用户名</label><input type="text" required class="form-control" ng-model="usr" style="margin-bottom: 20px; width: 300px;">
+			<label>密码</label><input type="password" required class="form-control" ng-model='pwd' style="width: 300px;">
+			<button type="submit" class="btn" style="margin-top:20px;">登陆</button>
+		</form>
+		<span ui-sref="sign" style="font-size: 12px; position: absolute; margin-top: -20px;margin-left: 100px;"><a href="">还没注册的同学可以点击这里注册</a></span>
+	</div>
 </div>
